@@ -27,15 +27,15 @@ export HF_HOME=/home/hf_cache
 
 # Auto quantize
 
-python hf_ptq.py --pyt_ckpt_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b \
-    --verbose \
-    --export_fmt tensorrt_llm \
-    --kv_cache_qformat none \
-    --auto_quantize_bits 9.0 \
-    --dataset cnn_dailymail \
-    --batch_size 4 \
-    --qformat int8_sq,none \
-    --export_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b_int8_sq_auto_quantized_cnn_dailymail
+# python hf_ptq.py --pyt_ckpt_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b \
+#     --verbose \
+#     --export_fmt tensorrt_llm \
+#     --kv_cache_qformat none \
+#     --auto_quantize_bits 9.0 \
+#     --dataset cnn_dailymail \
+#     --batch_size 4 \
+#     --qformat int8_sq,none \
+#     --export_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b_int8_sq_auto_quantized_cnn_dailymail1
 
 # python hf_ptq.py --pyt_ckpt_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b \
 #     --verbose \
@@ -46,3 +46,14 @@ python hf_ptq.py --pyt_ckpt_path /home/shreyasm/workspace/models/llama-3.1-8b-in
 #     --batch_size 4 \
 #     --qformat nvfp4 \
 #     --export_path /home/shreyasm/workspace/models/llama-3.1-8b-instruct_vhf-8c22764-nim1.3b_nvfp4_auto_quantized_magpie
+
+# random
+
+python hf_ptq.py --pyt_ckpt_path /home/shreyasm/workspace/models/starcoder2-7b_vhf-bb9afde \
+    --verbose \
+    --export_fmt hf \
+    --kv_cache_qformat fp8 \
+    --dataset cnn_dailymail \
+    --batch_size 4 \
+    --qformat fp8 \
+    --export_path /home/shreyasm/workspace/models/starcoder2-7b_hf_fp8
