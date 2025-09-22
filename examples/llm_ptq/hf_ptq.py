@@ -110,7 +110,7 @@ def auto_quantize(
         # which contains the loss attribute.
         return output.loss
 
-    model, _ = mtq.auto_quantize(
+    model, search_result = mtq.auto_quantize(
         model,
         constraints={"effective_bits": auto_quantize_bits},
         data_loader=calib_dataloader,
@@ -123,6 +123,9 @@ def auto_quantize(
         verbose=True,
         disabled_layers=["*lm_head*"],
     )
+    # print(search_result)
+    # print("All done!")
+    # exit(0)
 
     # We need to explicitly calibrate for kv cache quantization
     enable_quant_kv_cache = args.kv_cache_qformat != "none"
